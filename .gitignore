@@ -1,0 +1,9 @@
+# Add these lines to .gitignore
+train.csv
+data/cleaned_train.csv
+data/*.csv
+
+# Keep the logs though
+!data/logs/"train.csv" 
+"data/cleaned_train.csv" 
+"data/*.csv" 

@@ -1,0 +1,23 @@
+============================================================
+NYC TAXI DATA CLEANING REPORT
+============================================================
+
+Input file: train.csv
+Processing date: 2025-10-12 01:08:57
+
+CLEANING SUMMARY
+------------------------------------------------------------
+Total records processed: 1458644
+Final records: 1420521
+Records removed: 38123
+Removal percentage: 2.61%
+
+RECORDS REMOVED BY CATEGORY
+------------------------------------------------------------
+missing_values: 0
+duplicates: 0
+invalid_coordinates: 998
+invalid_duration: 29384
+invalid_passengers: 18
+
+============================================================

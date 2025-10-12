@@ -1,0 +1,31 @@
+{
+  "total_records": 1458644,
+  "removed_records": {
+    "missing_values": 0,
+    "duplicates": 0,
+    "invalid_coordinates": 998,
+    "invalid_duration": 29384,
+    "invalid_passengers": 18
+  },
+  "suspicious_records": [],
+  "statistics": {
+    "final_record_count": 1420521,
+    "records_removed": 38123,
+    "removal_percentage": 2.61,
+    "trip_duration": {
+      "mean": 800.8405373802992,
+      "median": 657.0,
+      "std": 550.2636454305633
+    },
+    "trip_distance": {
+      "mean": 3.2851108009174155,
+      "median": 2.0899992841486976,
+      "std": 3.534056518536937
+    },
+    "trip_speed": {
+      "mean": 14.4501152705559,
+      "median": 12.814631921233527,
+      "std": 7.621423804409069
+    }
+  }
+}

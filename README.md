@@ -6,7 +6,7 @@ Full-stack analytics application for exploring NYC taxi trip data with data clea
 - **Henriette Biziyaremye** - Data Cleaning & Preprocessing
 - **Aderline Gashugi** - Database Design & Implementation
 - **David Shumbusho** - Backend API Development
-- **Darcy Teta Mbabazi** - Frontend Dashboard Development
+- **Darcy Teta Mbanza** - Frontend Dashboard Development
 
 ## Tech Stack
 - **Data Processing**: Python, Pandas, NumPy

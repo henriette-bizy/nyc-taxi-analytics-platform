@@ -15,7 +15,7 @@ CREATE TABLE time_dimensions (
     pickup_month INTEGER NOT NULL CHECK (pickup_month >= 1 AND pickup_month <= 12),
     pickup_weekday INTEGER NOT NULL CHECK (pickup_weekday >= 0 AND pickup_weekday <= 6),
     pickup_year INTEGER NOT NULL,
-    time_of_day VARCHAR(20) CHECK (time_of_day IN ('Morning', 'Afternoon', 'Evening', 'Night')),
+    time_of_day VARCHAR(20) CHECK (time_of_day IN ('morning', 'afternoon', 'evening', 'night')),
     is_weekend BOOLEAN NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -57,7 +57,22 @@ CREATE TABLE trip_facts (
     CONSTRAINT valid_trip_timing CHECK (dropoff_datetime > pickup_datetime)
 );
 
+-- =============================================================================
+-- DATA QUALITY LOGGING TABLE
+-- =============================================================================
+
+CREATE TABLE data_quality_log (
+    log_id SERIAL PRIMARY KEY,
+    load_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    total_records_processed INTEGER,
+    records_inserted INTEGER,
+    records_rejected INTEGER,
+    rejection_reason TEXT,
+    load_status VARCHAR(20) CHECK (load_status IN ('SUCCESS', 'PARTIAL', 'FAILED'))
+);
+
 -- INDEXES for Query Performance
+
 
 CREATE INDEX idx_trip_pickup_datetime ON trip_facts(pickup_datetime);
 CREATE INDEX idx_trip_dropoff_datetime ON trip_facts(dropoff_datetime);
@@ -83,6 +98,7 @@ CREATE INDEX idx_location_zone ON locations(zone_name);
 
 -- VIEWS for Analytics Queries
 
+-- Hourly trip statistics view
 CREATE OR REPLACE VIEW hourly_trip_stats AS
 SELECT 
     td.pickup_hour,
@@ -97,6 +113,7 @@ FROM trip_facts tf
 JOIN time_dimensions td ON tf.time_id = td.time_id
 GROUP BY td.pickup_hour, td.time_of_day, td.is_weekend;
 
+-- Daily trip statistics view
 CREATE OR REPLACE VIEW daily_trip_stats AS
 SELECT 
     DATE(td.pickup_datetime) as trip_date,
@@ -109,6 +126,7 @@ FROM trip_facts tf
 JOIN time_dimensions td ON tf.time_id = td.time_id
 GROUP BY DATE(td.pickup_datetime), td.is_weekend;
 
+-- Location-based trip statistics
 CREATE OR REPLACE VIEW location_trip_stats AS
 SELECT 
     l.location_id,
@@ -120,16 +138,16 @@ FROM trip_facts tf
 JOIN locations l ON tf.pickup_location_id = l.location_id
 GROUP BY l.location_id, l.latitude, l.longitude, l.zone_name;
 
--- =============================================================================
--- INITIAL DATA SETUP
--- =============================================================================
+
+
 
 -- Insert vendor data
 INSERT INTO vendors (vendor_id, vendor_name, description) VALUES
 (1, 'Creative Mobile Technologies', 'Primary NYC taxi technology provider'),
 (2, 'VeriFone Inc', 'Secondary NYC taxi technology provider');
 
-COMMENT ON TABLE vendors IS 'Table storing taxi service vendors';
-COMMENT ON TABLE time_dimensions IS 'Table for temporal analysis';
-COMMENT ON TABLE locations IS 'Table for geographic locations';
-COMMENT ON TABLE trip_facts IS 'Table containing all taxi trip records';
+COMMENT ON TABLE vendors IS 'Dimension table storing taxi service vendors';
+COMMENT ON TABLE time_dimensions IS 'Dimension table for temporal analysis';
+COMMENT ON TABLE locations IS 'Dimension table for geographic locations';
+COMMENT ON TABLE trip_facts IS 'Fact table containing all taxi trip records';
+COMMENT ON TABLE data_quality_log IS 'Audit log for data loading operations';

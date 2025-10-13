@@ -15,6 +15,7 @@ DB_PORT = os.getenv('DB_PORT')
 DB_NAME = os.getenv('DB_NAME')
 DB_USER = os.getenv('DB_USER')
 DB_PASS = os.getenv('DB_PASS')
+PORT = int(os.getenv('PORT', '2500'))
 # basic auth credentials(from .env)
 VALID_USERNAME = os.getenv('API_USER')
 VALID_PASSWORD = os.getenv('API_PASS')
@@ -358,11 +359,11 @@ class APIHandler(BaseHTTPRequestHandler):
         print(f"{self.address_string()} - [{self.log_date_time_string()}] {format % args}")
 
 
-def run_server(port=8000):
-    server_address = ('', port)
+def run_server(PORT):
+    server_address = ('', PORT)
     httpd = HTTPServer(server_address, APIHandler)
-    print(f'Starting server on port {port}...')
-    print(f'API docs: GET http://localhost:{port}/')
+    print(f'Starting server on port {PORT}...')
+    print(f'API docs: GET http://localhost:{PORT}/')
     print(f'Auth user: {VALID_USERNAME}')
     try:
         httpd.serve_forever()

@@ -173,3 +173,36 @@ DETAIL:  Failing row contains (3, 2016-03-14 17:24:55, 17, 14, 3, 0, 2016, after
 2025-10-13 15:51:22,087 - INFO - Database connection closed
 2025-10-13 15:51:22,088 - INFO - 
 ✓ Data loading completed successfully!
+2025-10-13 19:35:22,931 - INFO - ======================================================================
+2025-10-13 19:35:22,931 - INFO - NYC Taxi Analytics Platform - Database Loader
+2025-10-13 19:35:22,931 - INFO - ======================================================================
+2025-10-13 19:35:22,951 - ERROR - Database connection failed: connection to server at "localhost" (::1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+2025-10-13 19:35:22,951 - ERROR - Failed to connect to database. Exiting.
+2025-10-13 20:32:43,487 - INFO - ======================================================================
+2025-10-13 20:32:43,487 - INFO - NYC Taxi Analytics Platform - Database Loader
+2025-10-13 20:32:43,487 - INFO - ======================================================================
+2025-10-13 20:32:43,512 - ERROR - Database connection failed: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "nyc_taxi_analytics" does not exist
+
+2025-10-13 20:32:43,512 - ERROR - Failed to connect to database. Exiting.
+2025-10-13 20:37:43,179 - INFO - ======================================================================
+2025-10-13 20:37:43,179 - INFO - NYC Taxi Analytics Platform - Database Loader
+2025-10-13 20:37:43,179 - INFO - ======================================================================
+2025-10-13 20:37:43,196 - INFO - Successfully connected to PostgreSQL database
+2025-10-13 20:37:43,196 - INFO - Loading CSV file: ../data/cleaned_train.csv
+2025-10-13 20:37:45,039 - INFO - Loaded 1420521 records from CSV
+2025-10-13 20:37:45,040 - INFO - Columns: ['id', 'vendor_id', 'pickup_datetime', 'dropoff_datetime', 'passenger_count', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude', 'store_and_fwd_flag', 'trip_duration', 'pickup_hour', 'pickup_day', 'pickup_month', 'pickup_weekday', 'pickup_year', 'trip_distance_km', 'trip_speed_kmh', 'trip_efficiency', 'time_of_day', 'is_weekend']
+2025-10-13 20:37:45,040 - INFO - Populating time_dimensions table...
+2025-10-13 20:38:14,062 - ERROR - Failed to populate time_dimensions: relation "time_dimensions" does not exist
+LINE 2:                 INSERT INTO time_dimensions 
+                                    ^
+
+2025-10-13 20:38:14,108 - INFO - Populating locations table...
+2025-10-13 20:39:06,649 - ERROR - Failed to populate locations: relation "locations" does not exist
+LINE 2:                 INSERT INTO locations (latitude, longitude, ...
+                                    ^
+
+2025-10-13 20:39:07,060 - INFO - Creating location ID mapping...

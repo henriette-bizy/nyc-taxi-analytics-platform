@@ -1,0 +1,175 @@
+2025-10-12 21:18:49,878 - INFO - ======================================================================
+2025-10-12 21:18:49,878 - INFO - NYC Taxi Analytics Platform - Database Loader
+2025-10-12 21:18:49,878 - INFO - ======================================================================
+2025-10-12 21:18:49,929 - INFO - Successfully connected to PostgreSQL database
+2025-10-12 21:18:49,929 - INFO - Loading CSV file: ../data/cleaned_train.csv
+2025-10-12 21:18:53,189 - INFO - Loaded 1420521 records from CSV
+2025-10-12 21:18:53,190 - INFO - Columns: ['id', 'vendor_id', 'pickup_datetime', 'dropoff_datetime', 'passenger_count', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude', 'store_and_fwd_flag', 'trip_duration', 'pickup_hour', 'pickup_day', 'pickup_month', 'pickup_weekday', 'pickup_year', 'trip_distance_km', 'trip_speed_kmh', 'trip_efficiency', 'time_of_day', 'is_weekend']
+2025-10-12 21:18:53,190 - INFO - Populating time_dimensions table...
+2025-10-12 21:19:19,251 - ERROR - Failed to populate time_dimensions: new row for relation "time_dimensions" violates check constraint "time_dimensions_time_of_day_check"
+DETAIL:  Failing row contains (2, 2016-03-14 17:24:55, 17, 14, 3, 0, 2016, afternoon, f, 2025-10-12 21:19:19.235471).
+
+2025-10-12 21:19:19,326 - INFO - Populating locations table...
+2025-10-12 21:20:55,491 - INFO - Inserted 2667833 unique location records
+2025-10-12 21:20:56,257 - INFO - Creating location ID mapping...
+2025-10-12 21:21:01,186 - INFO - Created location map with 2667833 entries
+2025-10-12 21:21:01,187 - INFO - Creating time ID mapping...
+2025-10-12 21:21:01,276 - INFO - Created time map with 0 entries
+2025-10-12 21:21:01,277 - INFO - Populating trip_facts table...
+2025-10-12 21:21:25,616 - INFO - Successfully inserted 0 trip records
+2025-10-12 21:21:25,616 - INFO - Rejected 1420521 records due to missing references
+2025-10-12 21:21:25,628 - INFO - 
+=== Data Integrity Check ===
+2025-10-12 21:21:25,637 - INFO - Total Trips: 0
+2025-10-12 21:21:25,768 - INFO - Total Locations: 2667833
+2025-10-12 21:21:25,769 - INFO - Total Time Dimensions: 0
+2025-10-12 21:21:25,771 - INFO - Average Trip Distance (km): None
+2025-10-12 21:21:25,771 - INFO - Average Trip Duration (sec): None
+2025-10-12 21:21:25,771 - INFO - Average Speed (km/h): None
+2025-10-12 21:21:25,774 - INFO - Date Range: (None, None)
+2025-10-12 21:21:25,774 - INFO - === Data Integrity Check Complete ===
+
+2025-10-12 21:21:25,775 - INFO - Database connection closed
+2025-10-12 21:21:25,775 - ERROR - 
+✗ Data loading completed with errors. Check logs for details.
+2025-10-12 21:24:32,875 - INFO - ======================================================================
+2025-10-12 21:24:32,875 - INFO - NYC Taxi Analytics Platform - Database Loader
+2025-10-12 21:24:32,875 - INFO - ======================================================================
+2025-10-12 21:24:33,186 - INFO - Successfully connected to PostgreSQL database
+2025-10-12 21:24:33,186 - INFO - Loading CSV file: ../data/cleaned_train.csv
+2025-10-12 21:24:36,036 - INFO - Loaded 1420521 records from CSV
+2025-10-12 21:24:36,036 - INFO - Columns: ['id', 'vendor_id', 'pickup_datetime', 'dropoff_datetime', 'passenger_count', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude', 'store_and_fwd_flag', 'trip_duration', 'pickup_hour', 'pickup_day', 'pickup_month', 'pickup_weekday', 'pickup_year', 'trip_distance_km', 'trip_speed_kmh', 'trip_efficiency', 'time_of_day', 'is_weekend']
+2025-10-12 21:24:36,036 - INFO - Populating time_dimensions table...
+2025-10-12 21:25:01,865 - ERROR - Failed to populate time_dimensions: new row for relation "time_dimensions" violates check constraint "time_dimensions_time_of_day_check"
+DETAIL:  Failing row contains (3, 2016-03-14 17:24:55, 17, 14, 3, 0, 2016, afternoon, f, 2025-10-12 21:25:01.794961).
+
+2025-10-12 21:25:01,967 - INFO - Populating locations table...
+2025-10-12 21:26:45,355 - INFO - ======================================================================
+2025-10-12 21:26:45,355 - INFO - NYC Taxi Analytics Platform - Database Loader
+2025-10-12 21:26:45,355 - INFO - ======================================================================
+2025-10-12 21:26:45,409 - INFO - Successfully connected to PostgreSQL database
+2025-10-12 21:26:45,409 - INFO - Loading CSV file: ../data/cleaned_train.csv
+2025-10-12 21:26:48,113 - INFO - Loaded 1420521 records from CSV
+2025-10-12 21:26:48,114 - INFO - Columns: ['id', 'vendor_id', 'pickup_datetime', 'dropoff_datetime', 'passenger_count', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude', 'store_and_fwd_flag', 'trip_duration', 'pickup_hour', 'pickup_day', 'pickup_month', 'pickup_weekday', 'pickup_year', 'trip_distance_km', 'trip_speed_kmh', 'trip_efficiency', 'time_of_day', 'is_weekend']
+2025-10-12 21:26:48,114 - INFO - Populating time_dimensions table...
+2025-10-12 21:27:57,690 - INFO - Inserted 1345896 unique time dimension records
+2025-10-12 21:27:57,832 - INFO - Populating locations table...
+2025-10-12 21:28:10,348 - ERROR - Failed to populate locations: could not convert string to float: '40.7        424201965332'
+2025-10-12 21:28:11,142 - INFO - Creating location ID mapping...
+2025-10-12 21:28:11,149 - INFO - Created location map with 0 entries
+2025-10-12 21:28:11,150 - INFO - Creating time ID mapping...
+2025-10-12 21:28:12,217 - INFO - Created time map with 1345896 entries
+2025-10-12 21:28:12,218 - INFO - Populating trip_facts table...
+2025-10-12 21:28:12,504 - WARNING - Skipped record id2070428: could not convert string to float: '40.7        424201965332'
+2025-10-12 21:28:36,664 - INFO - Successfully inserted 0 trip records
+2025-10-12 21:28:36,665 - INFO - Rejected 1420521 records due to missing references
+2025-10-12 21:28:36,724 - INFO - 
+=== Data Integrity Check ===
+2025-10-12 21:28:36,731 - INFO - Total Trips: 0
+2025-10-12 21:28:36,732 - INFO - Total Locations: 0
+2025-10-12 21:28:36,772 - INFO - Total Time Dimensions: 1345896
+2025-10-12 21:28:36,776 - INFO - Average Trip Distance (km): None
+2025-10-12 21:28:36,776 - INFO - Average Trip Duration (sec): None
+2025-10-12 21:28:36,776 - INFO - Average Speed (km/h): None
+2025-10-12 21:28:36,777 - INFO - Date Range: (None, None)
+2025-10-12 21:28:36,777 - INFO - === Data Integrity Check Complete ===
+
+2025-10-12 21:28:36,778 - INFO - Database connection closed
+2025-10-12 21:28:36,778 - ERROR - 
+✗ Data loading completed with errors. Check logs for details.
+2025-10-13 14:54:40,053 - INFO - ======================================================================
+2025-10-13 14:54:40,054 - INFO - NYC Taxi Analytics Platform - Database Loader
+2025-10-13 14:54:40,054 - INFO - ======================================================================
+2025-10-13 14:54:40,089 - INFO - Successfully connected to PostgreSQL database
+2025-10-13 14:54:40,089 - INFO - Loading CSV file: ../data/cleaned_train.csv
+2025-10-13 14:54:42,771 - INFO - Loaded 1420521 records from CSV
+2025-10-13 14:54:42,772 - INFO - Columns: ['id', 'vendor_id', 'pickup_datetime', 'dropoff_datetime', 'passenger_count', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude', 'store_and_fwd_flag', 'trip_duration', 'pickup_hour', 'pickup_day', 'pickup_month', 'pickup_weekday', 'pickup_year', 'trip_distance_km', 'trip_speed_kmh', 'trip_efficiency', 'time_of_day', 'is_weekend']
+2025-10-13 14:54:42,772 - INFO - Populating time_dimensions table...
+2025-10-13 14:55:35,397 - INFO - Inserted 1345896 unique time dimension records
+2025-10-13 14:55:35,522 - INFO - Populating locations table...
+2025-10-13 15:00:27,124 - INFO - Inserted 2667833 unique location records
+2025-10-13 15:00:29,367 - INFO - Creating location ID mapping...
+2025-10-13 15:00:35,504 - INFO - Created location map with 2667833 entries
+2025-10-13 15:00:35,507 - INFO - Creating time ID mapping...
+2025-10-13 15:00:40,188 - INFO - Created time map with 1345896 entries
+2025-10-13 15:00:40,189 - INFO - Populating trip_facts table...
+2025-10-13 15:01:06,863 - INFO - Successfully inserted 0 trip records
+2025-10-13 15:01:06,863 - INFO - Rejected 1420521 records due to missing references
+2025-10-13 15:01:06,930 - INFO - 
+=== Data Integrity Check ===
+2025-10-13 15:01:06,943 - INFO - Total Trips: 0
+2025-10-13 15:01:07,873 - INFO - Total Locations: 2667833
+2025-10-13 15:01:08,048 - INFO - Total Time Dimensions: 1345896
+2025-10-13 15:01:08,054 - INFO - Average Trip Distance (km): None
+2025-10-13 15:01:08,055 - INFO - Average Trip Duration (sec): None
+2025-10-13 15:01:08,056 - INFO - Average Speed (km/h): None
+2025-10-13 15:01:08,064 - INFO - Date Range: (None, None)
+2025-10-13 15:01:08,064 - INFO - === Data Integrity Check Complete ===
+
+2025-10-13 15:01:08,065 - INFO - Database connection closed
+2025-10-13 15:01:08,065 - INFO - 
+✓ Data loading completed successfully!
+2025-10-13 15:19:27,920 - INFO - ======================================================================
+2025-10-13 15:19:27,920 - INFO - NYC Taxi Analytics Platform - Database Loader
+2025-10-13 15:19:27,921 - INFO - ======================================================================
+2025-10-13 15:19:28,100 - INFO - Successfully connected to PostgreSQL database
+2025-10-13 15:19:28,100 - INFO - Loading CSV file: ../data/cleaned_train.csv
+2025-10-13 15:19:31,396 - INFO - Loaded 1420521 records from CSV
+2025-10-13 15:19:31,396 - INFO - Columns: ['id', 'vendor_id', 'pickup_datetime', 'dropoff_datetime', 'passenger_count', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude', 'store_and_fwd_flag', 'trip_duration', 'pickup_hour', 'pickup_day', 'pickup_month', 'pickup_weekday', 'pickup_year', 'trip_distance_km', 'trip_speed_kmh', 'trip_efficiency', 'time_of_day', 'is_weekend']
+2025-10-13 15:19:31,396 - INFO - Populating time_dimensions table...
+2025-10-13 15:20:24,198 - INFO - Inserted 1345896 unique time dimension records
+2025-10-13 15:20:24,308 - INFO - Populating locations table...
+2025-10-13 15:22:07,502 - INFO - Inserted 2667833 unique location records
+2025-10-13 15:22:08,125 - INFO - Creating location ID mapping...
+2025-10-13 15:22:13,707 - INFO - Created location map with 2667833 entries
+2025-10-13 15:22:13,708 - INFO - Creating time ID mapping...
+2025-10-13 15:22:15,781 - INFO - Created time map with 1345896 entries
+2025-10-13 15:22:15,781 - INFO - Populating trip_facts table...
+2025-10-13 15:22:41,611 - INFO - Successfully inserted 0 trip records
+2025-10-13 15:22:41,611 - INFO - Rejected 1420521 records due to missing references
+2025-10-13 15:22:41,672 - INFO - 
+=== Data Integrity Check ===
+2025-10-13 15:22:41,689 - INFO - Total Trips: 0
+2025-10-13 15:22:41,922 - INFO - Total Locations: 2667833
+2025-10-13 15:22:42,102 - INFO - Total Time Dimensions: 1345896
+2025-10-13 15:22:42,105 - INFO - Average Trip Distance (km): None
+2025-10-13 15:22:42,106 - INFO - Average Trip Duration (sec): None
+2025-10-13 15:22:42,106 - INFO - Average Speed (km/h): None
+2025-10-13 15:22:42,109 - INFO - Date Range: (None, None)
+2025-10-13 15:22:42,109 - INFO - === Data Integrity Check Complete ===
+
+2025-10-13 15:22:42,110 - INFO - Database connection closed
+2025-10-13 15:22:42,110 - INFO - 
+✓ Data loading completed successfully!
+2025-10-13 15:31:07,882 - INFO - ======================================================================
+2025-10-13 15:31:07,882 - INFO - NYC Taxi Analytics Platform - Database Loader
+2025-10-13 15:31:07,882 - INFO - ======================================================================
+2025-10-13 15:31:07,970 - INFO - Successfully connected to PostgreSQL database
+2025-10-13 15:31:07,970 - INFO - Loading CSV file: ../data/cleaned_train.csv
+2025-10-13 15:31:10,579 - INFO - Loaded 1420521 records from CSV
+2025-10-13 15:31:10,579 - INFO - Columns: ['id', 'vendor_id', 'pickup_datetime', 'dropoff_datetime', 'passenger_count', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude', 'store_and_fwd_flag', 'trip_duration', 'pickup_hour', 'pickup_day', 'pickup_month', 'pickup_weekday', 'pickup_year', 'trip_distance_km', 'trip_speed_kmh', 'trip_efficiency', 'time_of_day', 'is_weekend']
+2025-10-13 15:31:10,579 - INFO - Populating time_dimensions table...
+2025-10-13 15:32:01,917 - INFO - Inserted 1345896 unique time dimension records
+2025-10-13 15:32:02,036 - INFO - Populating locations table...
+2025-10-13 15:34:04,846 - INFO - Inserted 2667833 unique location records
+2025-10-13 15:34:05,905 - INFO - Creating location ID mapping...
+2025-10-13 15:34:12,653 - INFO - Created location map with 2667833 entries
+2025-10-13 15:34:12,654 - INFO - Creating time ID mapping...
+2025-10-13 15:34:14,259 - INFO - Created time map with 1345896 entries
+2025-10-13 15:34:14,259 - INFO - Populating trip_facts table...
+2025-10-13 15:51:19,574 - INFO - Successfully inserted 1144669 trip records
+2025-10-13 15:51:19,580 - INFO - Rejected 275852 records due to missing references
+2025-10-13 15:51:19,598 - INFO - 
+=== Data Integrity Check ===
+2025-10-13 15:51:21,021 - INFO - Total Trips: 1144669
+2025-10-13 15:51:21,520 - INFO - Total Locations: 2667833
+2025-10-13 15:51:21,891 - INFO - Total Time Dimensions: 1345896
+2025-10-13 15:51:21,987 - INFO - Average Trip Distance (km): 3.28
+2025-10-13 15:51:22,026 - INFO - Average Trip Duration (sec): 799.84
+2025-10-13 15:51:22,078 - INFO - Average Speed (km/h): 14.44
+2025-10-13 15:51:22,084 - INFO - Date Range: (datetime.datetime(2016, 1, 1, 0, 0, 17), datetime.datetime(2016, 6, 30, 23, 59, 39))
+2025-10-13 15:51:22,085 - INFO - === Data Integrity Check Complete ===
+
+2025-10-13 15:51:22,087 - INFO - Database connection closed
+2025-10-13 15:51:22,088 - INFO - 
+✓ Data loading completed successfully!

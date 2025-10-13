@@ -7,3 +7,5 @@ data/*.csv
 !data/logs/"train.csv" 
 "data/cleaned_train.csv" 
 "data/*.csv" 
+
+database/venv

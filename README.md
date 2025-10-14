@@ -96,8 +96,7 @@ DB_NAME=nyc_taxi_analytics
 DB_PORT=5432
 PORT=8000
 
-cd backend
-python server.py
+run `npm run dev` to start the server
 ```
 
 ## Endpoints

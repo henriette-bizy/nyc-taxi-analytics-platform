@@ -1,7 +1,8 @@
 const pool = require('../db/db.js');
 
-// GET all trips (limit for performance)
+// Get all trips (limit for performance)
 exports.getAllTrips = async (req, res) => {
+     // #swagger.tags = ['Trips']
   try {
     const limit = req.query.limit || 100;
     const result = await pool.query('SELECT * FROM trip_facts LIMIT $1', [limit]);
@@ -11,8 +12,9 @@ exports.getAllTrips = async (req, res) => {
   }
 };
 
-// GET trip by ID
+// Get single trip by id
 exports.getTripById = async (req, res) => {
+  // #swagger.tags = ['Trips']
   try {
     const { id } = req.params;
     const result = await pool.query('SELECT * FROM trip_facts WHERE trip_id = $1', [id]);
@@ -25,6 +27,7 @@ exports.getTripById = async (req, res) => {
 
 // Analytics endpoint example
 exports.getHourlyStats = async (req, res) => {
+    // #swagger.tags = ['Trips']
   try {
     const result = await pool.query('SELECT * FROM hourly_trip_stats ORDER BY pickup_hour');
     res.status(200).json(result.rows);

@@ -3,8 +3,8 @@ const { getAllTrips, getTripById, getHourlyStats } = require('../controllers/tri
 
 const router = express.Router();
 
-router.get('/', getAllTrips);
-router.get('/:id', getTripById);
-router.get('/analytics/hourly', getHourlyStats);
+router.get('/trips', getAllTrips);
+router.get('/trips/:id', getTripById);
+router.get('/trips/analytics/hourly', getHourlyStats);
 
 module.exports.tripRoutes = router;

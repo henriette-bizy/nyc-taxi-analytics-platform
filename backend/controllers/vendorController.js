@@ -2,6 +2,7 @@ const pool =require('../db/db.js');
 
 // Get all vendors
 exports.getAllVendors = async (req, res) => {
+      // #swagger.tags = ['Vendors']
   try {
     const result = await pool.query('SELECT * FROM vendors ORDER BY vendor_id');
     res.status(200).json(result.rows);
@@ -12,6 +13,7 @@ exports.getAllVendors = async (req, res) => {
 
 // Get vendor by ID
 exports.getVendorById = async (req, res) => {
+    // #swagger.tags = ['Vendors']
   try {
     const { id } = req.params;
     const result = await pool.query('SELECT * FROM vendors WHERE vendor_id = $1', [id]);
@@ -24,6 +26,7 @@ exports.getVendorById = async (req, res) => {
 
 // Create new vendor
 exports.createVendor = async (req, res) => {
+    // #swagger.tags = ['Vendors']
   try {
     const { vendor_name, description } = req.body;
     //get last id

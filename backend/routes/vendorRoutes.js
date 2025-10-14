@@ -3,8 +3,8 @@ const { getAllVendors, getVendorById, createVendor } =require ('../controllers/v
 
 const router = express.Router();
 
-router.get('/', getAllVendors);
-router.get('/:id', getVendorById);
-router.post('/', createVendor);
+router.get('/vendors', getAllVendors);
+router.get('/vendors/:id', getVendorById);
+router.post('/vendors', createVendor);
 
 module.exports.vendorRoutes=router;

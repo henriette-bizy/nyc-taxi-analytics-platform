@@ -1,0 +1,31 @@
+{
+  "name": "nyc-taxi-analytics-platform",
+  "version": "1.0.0",
+  "description": "Full-stack analytics application for exploring NYC taxi trip data with data cleaning, database design, and visualization capabilities.",
+  "main": "server.js",
+   "scripts": {
+    "swagger": "node swagger.js",
+    "start": "node ./backend/server.js",
+    "dev": "nodemon ./backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henriette-bizy/nyc-taxi-analytics-platform.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/henriette-bizy/nyc-taxi-analytics-platform/issues"
+  },
+  "homepage": "https://github.com/henriette-bizy/nyc-taxi-analytics-platform#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
+  }
+}

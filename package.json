@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Full-stack analytics application for exploring NYC taxi trip data with data cleaning, database design, and visualization capabilities.",
   "main": "server.js",
-   "scripts": {
+  "scripts": {
     "swagger": "node swagger.js",
     "start": "node ./backend/server.js",
     "dev": "nodemon ./backend/server.js"
@@ -24,6 +24,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "nodemon": "^3.1.10",
     "pg": "^8.16.3",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"

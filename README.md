@@ -59,7 +59,7 @@ brew services start postgresql@15
 # Install Python packages
 cd database
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate or venv\Scripts\activate for windows
 pip install psycopg2-binary pandas numpy tqdm
 ```
 

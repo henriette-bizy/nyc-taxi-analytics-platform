@@ -238,3 +238,33 @@ LINE 2:                 INSERT INTO locations (latitude, longitude, ...
 2025-10-13 20:51:56,937 - INFO - Database connection closed
 2025-10-13 20:51:56,937 - INFO - 
 ✓ Data loading completed successfully!
+2025-10-16 03:16:46,500 - INFO - ======================================================================
+2025-10-16 03:16:46,502 - INFO - NYC Taxi Analytics Platform - Database Loader
+2025-10-16 03:16:46,502 - INFO - ======================================================================
+2025-10-16 03:16:46,680 - INFO - Successfully connected to PostgreSQL database
+2025-10-16 03:16:46,683 - INFO - Loading CSV file: ../data/cleaned_train.csv
+2025-10-16 03:17:03,221 - INFO - Loaded 1420521 records from CSV
+2025-10-16 03:17:03,227 - INFO - Columns: ['id', 'vendor_id', 'pickup_datetime', 'dropoff_datetime', 'passenger_count', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude', 'store_and_fwd_flag', 'trip_duration', 'pickup_hour', 'pickup_day', 'pickup_month', 'pickup_weekday', 'pickup_year', 'trip_distance_km', 'trip_speed_kmh', 'trip_efficiency', 'time_of_day', 'is_weekend']
+2025-10-16 03:17:03,229 - INFO - Populating time_dimensions table...
+2025-10-16 03:24:25,053 - INFO - Inserted 1345896 unique time dimension records
+2025-10-16 03:24:25,537 - INFO - Populating locations table...
+2025-10-16 03:36:46,329 - INFO - Inserted 2667833 unique location records
+2025-10-16 03:36:59,505 - INFO - Creating location ID mapping...
+2025-10-16 03:37:45,525 - INFO - Created location map with 2667833 entries
+2025-10-16 03:37:45,546 - INFO - Creating time ID mapping...
+2025-10-16 03:37:52,830 - INFO - Created time map with 1345896 entries
+2025-10-16 03:37:52,834 - INFO - Populating trip_facts table...
+2025-10-16 03:57:29,564 - INFO - Successfully inserted 1144669 trip records
+2025-10-16 03:57:29,576 - INFO - Rejected 275852 records due to missing references
+2025-10-16 03:57:29,607 - INFO - 
+=== Data Integrity Check ===
+2025-10-16 03:57:31,046 - INFO - Total Trips: 1144669
+2025-10-16 03:57:31,991 - INFO - Total Locations: 2667833
+2025-10-16 03:57:32,618 - INFO - Total Time Dimensions: 1345896
+2025-10-16 03:57:33,202 - INFO - Average Trip Distance (km): 3.28
+2025-10-16 03:57:33,685 - INFO - Average Trip Duration (sec): 799.84
+2025-10-16 03:57:34,222 - INFO - Average Speed (km/h): 14.44
+2025-10-16 03:57:34,238 - INFO - Date Range: (datetime.datetime(2016, 1, 1, 0, 0, 17), datetime.datetime(2016, 6, 30, 23, 59, 39))
+2025-10-16 03:57:34,239 - INFO - === Data Integrity Check Complete ===
+
+2025-10-16 03:57:34,244 - INFO - Database connection closed

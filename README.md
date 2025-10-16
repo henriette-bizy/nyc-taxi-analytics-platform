@@ -85,6 +85,8 @@ Base URL: `http://localhost:8000/`(or your configured port)
 
 ### How to run the server
 ```bash
+# install Node.js and npm if not already installed
+https://nodejs.org/en/download
 # Install dependencies
 run `npm install` in the project root
 
@@ -96,7 +98,8 @@ DB_NAME=nyc_taxi_analytics
 DB_PORT=5432
 PORT=8000
 
-run `npm run dev` to start the server
+run `npm run dev` to start the server (development mode, with hot reload. For production use `npm start`)
+(if npm run dev is used, ensure nodemon is installed globally: npm install -g nodemon)
 ```
 
 ## Endpoints

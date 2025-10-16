@@ -1,120 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NYC Cab Tracker</title>
+    <title>NYC Taxi Analytics</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css">
-
-    <!--for leaflet.css-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">NYC Taxi Analytics</div>
+      <ul class="navlist">
+        <li><a href="#kpis">Overview</a></li>
+        <li><a href="#charts">Trends</a></li>
+        <li><a href="#vendors">Vendors</a></li>
+        <li><a href="#maps">Map</a></li>
+      </ul>
+    </aside>
 
-
-</head>
-<body>
-   
-    <div class="navbar">
-            <nav class="navigation">
-                <ul>
-                    <li class="active">
-                        <a href="#hero">
-                            <span class="icon"><i class="fas fa-home"></i></span>
-                            <span class="text">Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#charts">
-                            <span class="icon"><i class="fas fa-chart-area"></i></span>
-                            <span class="text">Charts</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#maps">
-                            <span class="icon"><i class="fas fa-map-pin"></i></span>
-                            <span class="text">Map</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><i class="fas fa-camera"></i></span>
-                            <span class="text">Photos</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><i class="fas fa-user-circle"></i></span>
-                            <span class="text">Profile</span>
-                        </a>
-                    </li>
-                    <div class="indicator"></div>
-                </ul>
-            </nav>
-    </div>
-
-    <section class="hero" id="hero" data-aos="fade-up">
-        <h1 class="main-title">NYC Cab Tracker</h1>
-
-        <div class="image-box">
-            <img src="assets/3D-car.png" alt="3D car" class="glow-img">
+    <main class="container">
+      <section class="hero-alt" data-aos="fade-up">
+        <div class="hero-text">
+          <h1>Urban Mobility Insights</h1>
+          <p>
+            Explore hourly taxi demand, vendor distribution, and live location
+            context to understand how NYC moves.
+          </p>
         </div>
-    </section>
+        <div class="hero-art">
+          <img src="assets/3D-car.png" alt="NYC Taxi" class="hero-img" />
+        </div>
+      </section>
 
+      <section id="kpis" class="kpis" data-aos="zoom-in">
+        <div class="kpi-card">
+          <div class="kpi-title">Peak Hour Trips</div>
+          <div class="kpi-value" id="kpi-peak">--</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Off-Peak Trips</div>
+          <div class="kpi-value" id="kpi-offpeak">--</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Vendors</div>
+          <div class="kpi-value" id="kpi-vendors">--</div>
+        </div>
+      </section>
 
-    <section class="charts" id="charts" data-aos="zoom-in-up">
-        <h2>Data Insights</h2>
-        <p class="chart-intro">
-            Discover key patterns behind NYC taxi rides — from daily trip counts to passenger trends and speed categories.
-        </p>
-
-        <button class="big-button" id="button">Show Charts</button>
-        <div class="chart-box" id="chartbox">
-            <div class="chart">
-                <h3>Trip Trend</h3>
-                <canvas id="linechart"></canvas>
+      <section class="charts pro" id="charts" data-aos="zoom-in-up">
+        <div class="charts-grid">
+          <div class="chart">
+            <div class="chart-header">
+              <h3>Trips per Hour</h3>
             </div>
+            <canvas id="linechart"></canvas>
+          </div>
+          <div class="chart">
+            <div class="chart-header">
+              <h3>Peak vs Off-Peak</h3>
+            </div>
+            <canvas id="donutchart"></canvas>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section class="maps" id="maps" data-aos="fade-left">
-        <h2>Live NYC Taxi Map</h2>
-        <p class="map-subtext">
-            Track the pulse of the city — view taxi movement and coverage in real time. Zoom in to explore your area!
-        </p>
+      <section id="vendors" class="vendors" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Vendors</h2>
+          <div class="search-box">
+            <input
+              id="vendor-search"
+              type="text"
+              placeholder="Search vendors"
+            />
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody id="vendor-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="maps" id="maps" data-aos="fade-left">
+        <h2>NYC Map</h2>
         <div id="map" class="map-container"></div>
-    </section>
+      </section>
+    </main>
 
-    <section class="overview" id="overview" data-aos="fade-right">
-        <h2>Overview</h2>
-        <p>
-            The NYCab Dashboard gives a visual deep dive into the city’s transportation system. Whether you're a data lover, traveler, or city planner, this dashboard helps uncover stories behind every ride — revealing traffic patterns, trip speeds, and area popularity.
-        </p>
-
-    </section>
-
-
-    <footer>
-        <p>© 2025 NYC Cab information. All Rights Reserved.</p>
+    <footer class="footer">
+      <p>© 2025 NYC Taxi Analytics</p>
     </footer>
 
     <!--for chart.js-->
+    <script>
+      window.API_BASE = window.API_BASE || "http://localhost:8000";
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="chart.js"></script>
 
     <!--for leaflet.js-->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
     <script src="map.js"></script>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
-    
-</body>
+  </body>
 </html>

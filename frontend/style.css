@@ -20,7 +20,7 @@ body {
   color: var(--cream);
   overflow-x: hidden;
   scroll-behavior: smooth;
-  padding-left: 260px;
+  padding-left: 320px;
 }
 
 .topbar {
@@ -62,6 +62,7 @@ body {
   flex-direction: column;
   gap: 16px;
   z-index: 1000;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
 }
 .navlist {
   list-style: none;
@@ -86,6 +87,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px;
+  margin-left: 40px;
 }
 
 .hero-alt {
@@ -722,7 +724,6 @@ footer {
   }
 }
 
-
 .filter-bar {
   display: flex;
   justify-content: flex-end;
@@ -746,4 +747,3 @@ footer {
   border-radius: 5px;
   margin-right: 1rem;
 }
-

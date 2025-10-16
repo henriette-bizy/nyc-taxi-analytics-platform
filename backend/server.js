@@ -6,7 +6,7 @@ const { tripRoutes } = require('./routes/tripRoutes');
 const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require('../swaggerDocs.json');
 
-dotenv.config({ path: './backend/.env' });
+dotenv.config({ path: '../.env' });
 const app = express();
 
 // some middleware

@@ -85,6 +85,8 @@ Base URL: `http://localhost:8000/`(or your configured port)
 
 ### How to run the server
 ```bash
+# install Node.js and npm if not already installed
+https://nodejs.org/en/download
 # Install dependencies
 run `npm install` in the project root
 
@@ -96,7 +98,8 @@ DB_NAME=nyc_taxi_analytics
 DB_PORT=5432
 PORT=8000
 
-run `npm run dev` to start the server
+run `npm run dev` to start the server (development mode, with hot reload. For production use `npm start`)
+(if npm run dev is used, ensure nodemon is installed globally: npm install -g nodemon)
 ```
 
 ## Endpoints
@@ -104,7 +107,153 @@ run `npm run dev` to start the server
 You can check the API documentation at `http://localhost:8000/api/documentation` once the server is running.
 
 ### 4. Frontend Dashboard
-*[Coming soon]*
+**NYC Taxi Analytics** is an interactive dashboard that utilizes New York City taxi trip data to provide real-time insights into trip patterns, vendor performance, and city mobility trends, leveraging modern web technologies such as **Chart.js**, **Leaflet**, and **AOS animations**.
+
+# Overview
+This web app helps show and analyze NYC taxi data, focusing on:
+- The number of times taxis are in demand per hour
+- Peak vs Off-Peak activity
+- Vendor statistics and list 
+- Geospatial trip visualization on a map
+
+Users can explore data interactively with built-in **filters**, **sorting**, and **live charts**.
+
+## Features
+**Dynamic Charts**
+- Line chart showing trips per hour  
+- Doughnut chart comparing peak vs off-peak trips
+
+**Data Filters & Sorting**
+- Filter trip data by time of day (Morning, Afternoon, Evening, Night)
+- Sort vendors by ID or name  
+- Search bar for instant vendor lookup
+
+**Map Visualization**
+- Interactive NYC map using **Leaflet.js**
+
+**KPI Summary Cards**
+- Real-time counters for peak/off-peak trips and the number of vendors
+
+**Responsive UI**
+- Optimized for all devices
+- Smooth animations using **AOS (Animate On Scroll)**
+
+
+##  Tech Stack
+
+| Layer | Technology |
+|-------|-------------|
+| **Frontend** | HTML5, CSS3, JavaScript (ES6) |
+| **Charts** | [Chart.js](https://www.chartjs.org/) |
+| **Map** | [Leaflet.js](https://leafletjs.com/) |
+| **Animations** | [AOS](https://michalsnik.github.io/aos/) |
+| **Icons** | Font Awesome |
+| **Backend (API)** | Node.js / FastAPI |
+
+##  Project Structure
+
+nyc-taxi-dashboard/
+│
+├── assets/
+│ └── 3D-car.png # 3D car illustration used in hero section
+│
+├── index.html # Main dashboard structure
+├── style.css # Styling and layout
+├── chart.js # Chart rendering, filtering, and sorting
+├── map.js # Leaflet map setup
+├── script.js # General animations / AOS initialization
+│
+└── README.md # Project documentation
+
+## Setup Instructions
+
+###  Clone the repository
+```bash
+git clone https://github.com/yourusername/nyc-taxi-dashboard.git
+cd nyc-taxi-dashboard
+```
+as stated on the backend section
+npm install
+# or
+pip install -r requirements.txt
+
+Ensure this line is present in your backend:
+<script>
+  window.API_BASE = "http://localhost:8000";
+</script>
+
+Run the server 
+uvicorn main: app --reload
+
+Simply open index.html in your browser
+
+API Endpoints
+
+These are the expected endpoints your backend should provide:
+
+Endpoint: /api/trips/analytics/hourly        	              	             
+Description: Hourly trip counts
+Example Response: [{"pickup_hour": 8, "trip_count": 15000}, ...]
+
+Endpoint:/api/vendors
+Description:Vendor list
+Example Response:	[{"vendor_id": 1, "vendor_name": "VeriFone", "description": "Provider"}, ...]
+
+
+Filters & Sorting Logic
+
+Hour Range Filter:
+Updates both charts to show data for selected ranges:
+
+-Morning (05–11)
+-Afternoon (12–17)
+-Evening (18–23)
+-Night (00–04)
+
+Vendor Sorting:
+Sorts table alphabetically or by numeric ID.
+
+Live Search:
+Instantly filters vendor table rows based on text input.
+
+Map Integration
+
+The Leaflet.js map (in map.js) initializes a zoomable, draggable map centered on NYC:
+
+```
+js
+
+const map = L.map('map').setView([40.7128, -74.0060], 11);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+```
+You can extend it to:
+
+ -Display trip pickup/dropoff clusters
+ -Add real-time markers
+ -Visualize heatmaps
+ 
+Animations
+
+AOS is used to animate sections as users scroll:
+
+html
+<section data-aos="fade-up">...</section>
+
+Initialize AOS in your script.js:
+
+AOS.init({ duration: 1000, once: true });
+
+Future Improvements
+
+-Date range filter (start–end date pickers)
+-Heatmap for pickup density
+-Compare multiple vendors
+-Export chart data to CSV
+-Dark/light mode toggle
+
+Author: The Team
+
 
 ## Dataset Overview
 

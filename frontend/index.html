@@ -59,21 +59,42 @@
       </section>
 
       <section class="charts pro" id="charts" data-aos="zoom-in-up">
-        <div class="charts-grid">
-          <div class="chart">
-            <div class="chart-header">
-              <h3>Trips per Hour</h3>
-            </div>
-            <canvas id="linechart"></canvas>
-          </div>
-          <div class="chart">
-            <div class="chart-header">
-              <h3>Peak vs Off-Peak</h3>
-            </div>
-            <canvas id="donutchart"></canvas>
+        <div class="filter-bar">
+          <div class="filter-controls">
+            <label for="hour-filter">Hour Range:</label>
+            <select id="hour-filter">
+              <option value="all">All</option>
+              <option value="morning">Morning (5–11)</option>
+              <option value="afternoon">Afternoon (12–17)</option>
+              <option value="evening">Evening (18–23)</option>
+              <option value="night">Night (0–4)</option>
+            </select>
+
+            <label for="vendor-sort" style="margin-left:1rem;">Sort Vendors:</label>
+            <select id="vendor-sort">
+              <option value="id">By ID</option>
+              <option value="name">By Name</option>
+            </select>
           </div>
         </div>
-      </section>
+
+  <div class="charts-grid">
+    <div class="chart">
+      <div class="chart-header">
+        <h3>Trips per Hour</h3>
+      </div>
+      <canvas id="linechart"></canvas>
+    </div>
+
+    <div class="chart">
+      <div class="chart-header">
+        <h3>Peak vs Off-Peak</h3>
+      </div>
+      <canvas id="donutchart"></canvas>
+    </div>
+  </div>
+</section>
+
 
       <section id="vendors" class="vendors" data-aos="fade-up">
         <div class="section-header">

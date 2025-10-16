@@ -11,8 +11,8 @@ Full-stack analytics application for exploring NYC taxi trip data with data clea
 ## Tech Stack
 - **Data Processing**: Python, Pandas, NumPy
 - **Database**: PostgreSQL
-- **Backend**: [TBD]
-- **Frontend**: [TBD]
+- **Backend**: Nodejs
+- **Frontend**: HTML, CSS, JAVASCRIPT
 
 ## Project Structure
 ```
@@ -23,8 +23,8 @@ nyc-taxi-analytics-platform/
 │   ├── database_schema.sql
 │   ├── load_data_to_db.py
 │   └── setup_database.sh
-├── backend/                # [Coming soon]
-├── frontend/               # [Coming soon]
+├── backend/                
+├── frontend/               
 └── README.md
 ```
 
@@ -286,7 +286,9 @@ Author: The Team
 - Pre-built views for common analytics
 
 ## Video Walkthrough
-*[Link to be added]*
+
+[Demo Video](https://www.youtube.com/watch?v=lQ7fq9MTk5Q)
+
 
 ## License
 Academic project for ALU Software Engineering
